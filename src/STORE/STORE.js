@@ -1,12 +1,12 @@
 const EVENTS = [
   {
     type: 'diaper_changes',
-    content: 'wet',
+    content: 'Wet',
     date: '05/29/2020',
   },
   {
     type: 'feedings',
-    content: '30 millileters',
+    content: '30 milliliters',
     date: '05/29/2020',
   },
   {
@@ -18,6 +18,11 @@ const EVENTS = [
     type: 'appointments',
     content: 'Pediatrician',
     date: '06/02/2020',
+  },
+  {
+    type: 'diaper_changes',
+    content: 'Dirty',
+    date: '05/29/2020',
   },
 ];
 
