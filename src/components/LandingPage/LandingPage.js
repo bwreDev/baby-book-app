@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Navbar from '../../components/Navbar/Navbar';
 
 export default class LandingPage extends Component {
   render() {
     return (
       <>
+        <Navbar />
         <header role='banner'>
           <h1>Baby Book!</h1>
           <h2>Organize your newborns life!</h2>

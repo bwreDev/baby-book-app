@@ -1,10 +1,37 @@
+import TokenService from '../services/token-services';
 import config from '../config';
 
 const BabyBookApiService = {
   getEvents() {
-    return fetch(`${config.API_ENDPOINT}/events`, {});
+    return fetch(`${config.API_ENDPOINT}/events`, {
+      headers: {
+        authorization: `bearer ${TokenService.getAuthToken()}`,
+      },
+    }).then((res) =>
+      !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+    );
   },
-  postEvents() {
-    return fetch(`${config.API_ENDPOINT}/events`);
+  getEvent(eventId) {
+    return fetch(`${config.API_ENDPOINT}/events/${eventId}`, {
+      headers: {
+        authorization: `bearer ${TokenService.getAuthToken()}`,
+      },
+    }).then((res) =>
+      !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+    );
+  },
+  postEvent(data) {
+    return fetch(`${config.API_ENDPOINT}/events`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        authorization: `bearer ${TokenService.getAuthToken()}`,
+      },
+      body: JSON.stringify(data),
+    }).then((res) =>
+      !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+    );
   },
 };
+
+export default BabyBookApiService;

@@ -1,30 +1,32 @@
 import React, { Component } from 'react';
-import { NavLink, Redirect } from 'react-router-dom';
-import EventsContext from '../../contexts/EventsContext';
+import { Link } from 'react-router-dom';
+import TokenService from '../../services/token-services';
+import IdleService from '../../services/idle-service';
 
 export default class Navbar extends Component {
-  static contextType = EventsContext;
+  state = {
+    user: null,
+  };
+
   handleLogoutClick = () => {
-    return <Redirect to='/' />;
+    TokenService.clearAuthToken();
+    TokenService.clearCallbackBeforeExpiry();
+    IdleService.unRegisterIdleResets();
   };
 
   renderLogoutLink() {
     return (
       <div className='Navbar__logged-in'>
         <li>
-          <NavLink onClick={this.handleLogoutClick} to='/'>
-            Logout
-          </NavLink>
+          <Link to='/user'>Profile</Link>
         </li>
-      </div>
-    );
-  }
-
-  renderAddEventLink() {
-    return (
-      <div className='Navbar-Event__logged-in'>
         <li>
-          <NavLink to='/event'>Add Event</NavLink>
+          <Link to='/event'>Add Event</Link>
+        </li>
+        <li>
+          <Link to='/' onClick={this.handleLogoutClick}>
+            Logout
+          </Link>
         </li>
       </div>
     );
@@ -34,10 +36,10 @@ export default class Navbar extends Component {
     return (
       <div className='Navbar__not-logged-in'>
         <li>
-          <NavLink to='/register'>Register</NavLink>
+          <Link to='/register'>Register</Link>
         </li>
         <li>
-          <NavLink to='/login'>Log in</NavLink>
+          <Link to='/login'>Log in</Link>
         </li>
       </div>
     );
@@ -48,15 +50,11 @@ export default class Navbar extends Component {
       <nav role='navigation' className='navbar'>
         <ul>
           <li>
-            <NavLink to='/'>Home</NavLink>
+            <Link to='/'>Home</Link>
           </li>
-          {this.renderAddEventLink()}
-          {this.renderLoginLink()}
-          {this.renderLogoutLink()}
-          {/*Dynamic NavBar based on login 
-          this.context.user
-            ? this.renderLogoutLink() && this.renderAddEventLink()
-          : this.renderLoginLink()*/}
+          {TokenService.hasAuthToken()
+            ? this.renderLogoutLink()
+            : this.renderLoginLink()}
         </ul>
       </nav>
     );

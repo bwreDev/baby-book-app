@@ -1,58 +1,64 @@
 import React, { Component } from 'react';
-import EventsContext from '../../contexts/EventsContext';
-import { Redirect } from 'react-router-dom';
 import AuthApiService from '../../services/auth-api-service';
+import Navbar from '../../components/Navbar/Navbar';
 
 export default class LoginForm extends Component {
-  static contextType = EventsContext;
   static defaultProps = {
-    onLoginSuccess: () => {
-      return <Redirect to={`/user`} />;
-    },
+    onLoginSuccess: () => {},
   };
 
-  handleSubmit = (event) => {
+  state = { error: null };
+
+  handleSubmitJwtAuth = (event) => {
     event.preventDefault();
+    this.setState({ error: null });
     const { username, password } = event.target;
 
     AuthApiService.postLogin({
-      user_name: username.value,
+      username: username.value,
       password: password.value,
-    }).then((data) => {
-      console.log(data);
-    });
-
-    console.log('login form submitted');
-    console.log({
-      user_name: username.value,
-      password: password.value,
-    });
-
-    username.value = '';
-    password.value = '';
-    this.props.history.push('/user');
+    })
+      .then((res) => {
+        username.value = '';
+        password.value = '';
+        this.props.onLoginSuccess();
+        this.props.history.push('/user');
+      })
+      .catch((res) => {
+        this.setState({ error: res.error });
+      });
   };
 
   render() {
+    const { error } = this.state;
     return (
-      <form className='LoginForm' onSubmit={this.handleSubmit}>
-        <fieldset>
-          <label htmlFor='LoginForm__username'>Username:</label>
-          <input
-            name='username'
-            type='text'
-            id='LoginForm__username'
-            required
-          />
-          <label htmlFor='LoginForm__password'>Password:</label>
-          <input
-            name='password'
-            type='password'
-            id='LoginForm__password'
-          />
-        </fieldset>
-        <button type='submit'>Login</button>
-      </form>
+      <>
+        <Navbar />
+        <form
+          className='LoginForm'
+          onSubmit={this.handleSubmitJwtAuth}
+        >
+          <div role='alert'>
+            {error && <p className='red'>{error}</p>}
+          </div>
+          <fieldset>
+            <label htmlFor='LoginForm__username'>username:</label>
+            <input
+              name='username'
+              type='text'
+              id='LoginForm__username'
+              required
+            />
+            <label htmlFor='LoginForm__password'>Password:</label>
+            <input
+              name='password'
+              type='password'
+              id='LoginForm__password'
+            />
+          </fieldset>
+          <button type='submit'>Login</button>
+        </form>
+      </>
     );
   }
 }
