@@ -11,6 +11,7 @@ import UserPage from '../UserPage/UserPage';
 import TokenService from '../../services/token-services';
 import AuthApiService from '../../services/auth-api-service';
 import IdleService from '../../services/idle-service';
+import Footer from '../Footer/Footer';
 import './App.css';
 
 export default class App extends Component {
@@ -59,6 +60,7 @@ export default class App extends Component {
           <PrivateRoute path='/user' component={UserPage} />
           <Route component={NotFoundPage} />
         </Switch>
+        <Footer />
       </main>
     );
   }

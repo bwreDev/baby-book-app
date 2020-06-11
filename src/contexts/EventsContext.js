@@ -10,6 +10,7 @@ const EventsContext = React.createContext({
   clearUser: () => {},
   setEvents: () => {},
   clearEvent: () => {},
+  deleteEvent: () => {},
 });
 
 export default EventsContext;
@@ -46,6 +47,10 @@ export class EventProvider extends Component {
     this.setEvents([...this.state.events, event]);
   };
 
+  deleteEvent = () => {
+    // this.setEvents({ events });
+  };
+
   render() {
     const value = {
       events: this.state.events,
@@ -57,6 +62,7 @@ export class EventProvider extends Component {
       setUser: this.setUser,
       clearEvent: this.clearEvent,
       addEvent: this.addEvent,
+      deleteEvent: this.deleteEvent,
     };
 
     return (

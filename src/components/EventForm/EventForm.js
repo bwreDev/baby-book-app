@@ -19,16 +19,6 @@ export default class EventForm extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
 
-    const {
-      diaper_changes,
-      feedings,
-      feeding_amount,
-      measurement,
-      appointments,
-      appointments_date,
-      stretches,
-    } = event.target;
-
     let eventObject = {
       title: this.state.event_type,
     };
@@ -37,17 +27,18 @@ export default class EventForm extends Component {
       eventObject.content = event.target.diaper_changes.value;
     }
     if (eventObject.title === 'feedings') {
-      eventObject.content = [
-        event.target.feedings.value,
-        event.target.feeding_amount.value,
-        event.target.measurement.value,
-      ];
+      eventObject.content =
+        event.target.feedings.value +
+        ' ' +
+        event.target.feeding_amount.value +
+        ' ' +
+        event.target.measurement.value;
     }
     if (eventObject.title === 'appointments') {
-      eventObject.content = [
-        event.target.appointments.value,
-        event.target.appointments_date.value,
-      ];
+      eventObject.content =
+        event.target.appointments.value +
+        ' ' +
+        event.target.appointments_date.value;
     }
     if (eventObject.title === 'stretches') {
       eventObject.content = event.target.stretches.value;
@@ -55,15 +46,6 @@ export default class EventForm extends Component {
 
     BabyBookApiService.postEvent(eventObject)
       .then(this.context.addEvent)
-      .then(() => {
-        diaper_changes.value = '';
-        feedings.value = '';
-        feeding_amount.value = '';
-        measurement.value = '';
-        appointments.value = '';
-        appointments_date.value = '';
-        stretches.value = '';
-      })
       .then(this.props.history.push('/user'))
       .catch(this.context.setError);
   };

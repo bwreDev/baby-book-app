@@ -17,5 +17,3 @@ export default function PublicOnlyRoute({ component, ...props }) {
     />
   );
 }
-
-//Thinking there is a problem here.

@@ -32,6 +32,14 @@ const BabyBookApiService = {
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
+  deleteEvent(eventId) {
+    return fetch(`${config.API_ENDPOINT}/events/${eventId}`, {
+      method: 'DELETE',
+      headers: {
+        authorization: `bearer ${TokenService.getAuthToken()}`,
+      },
+    });
+  },
 };
 
 export default BabyBookApiService;

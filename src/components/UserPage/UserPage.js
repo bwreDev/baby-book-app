@@ -17,13 +17,11 @@ export default class UserPage extends Component {
     );
   }
 
-  /* To Do: Add date filter for events.
-  handleOnChange = (e) => {
-    this.setState({
-      start_date: e.target.value,
+  handleDelete = (id) => {
+    BabyBookApiService.deleteEvent(id).then((res) => {
+      this.componentDidMount();
     });
   };
-  */
 
   render() {
     return (
@@ -33,47 +31,77 @@ export default class UserPage extends Component {
           <h1>Baby Book!</h1>
           <h2>Welcome Back!</h2>
         </header>
-        {/*To Do: Link to date filter function
-        <form>
-          <label htmlFor='start_date'>Start date:</label>
-          <input
-            type='date'
-            id='start_date'
-            value={this.state.start_date}
-            onChange={this.handleOnChange}
-          ></input>
-        </form>*/}
         <section>
           <h3>Recent Feedings</h3>
-          {this.context.events
-            .filter((e) => e.title === 'feedings')
-            .map((e) => (
-              <EventItem key={e.id} event={e} />
-            ))}
+          <ul>
+            {this.context.events
+              .filter((e) => e.title === 'feedings')
+              .map((e) => (
+                <li key={e.id}>
+                  <EventItem event={e} />
+                  <button
+                    className='delete_feedings'
+                    onClick={() => this.handleDelete(e.id)}
+                  >
+                    Delete
+                  </button>
+                </li>
+              ))}
+          </ul>
         </section>
         <section>
           <h3>Recent Diaper Changes</h3>
-          {this.context.events
-            .filter((e) => e.title === 'diaper_changes')
-            .map((e) => (
-              <EventItem key={e.id} event={e} />
-            ))}
+          <ul>
+            {this.context.events
+              .filter((e) => e.title === 'diaper_changes')
+              .map((e) => (
+                <li key={e.id}>
+                  <EventItem event={e} />
+                  <button
+                    className='delete_diaper_changes'
+                    onClick={() => this.handleDelete(e.id)}
+                  >
+                    Delete
+                  </button>
+                </li>
+              ))}
+          </ul>
         </section>
         <section>
           <h3>Recent Stretches</h3>
-          {this.context.events
-            .filter((e) => e.title === 'stretches')
-            .map((e) => (
-              <EventItem key={e.id} event={e} />
-            ))}
+          <ul>
+            {this.context.events
+              .filter((e) => e.title === 'stretches')
+              .map((e) => (
+                <li key={e.id}>
+                  <EventItem event={e} />
+                  <button
+                    className='delete_stretches'
+                    onClick={() => this.handleDelete(e.id)}
+                  >
+                    Delete
+                  </button>
+                </li>
+              ))}
+          </ul>
         </section>
         <section>
           <h3>Upcoming Appointments</h3>
-          {this.context.events
-            .filter((e) => e.title === 'appointments')
-            .map((e) => (
-              <EventItem key={e.id} event={e} />
-            ))}
+          <ul>
+            {this.context.events
+              .filter((e) => e.title === 'appointments')
+              .map((e) => (
+                <li key={e.id}>
+                  <EventItem event={e} />
+                  <button
+                    className='delete_appointment'
+                    onClick={() => this.handleDelete(e.id)}
+                  >
+                    Delete
+                  </button>
+                </li>
+              ))}
+          </ul>
         </section>
       </>
     );
