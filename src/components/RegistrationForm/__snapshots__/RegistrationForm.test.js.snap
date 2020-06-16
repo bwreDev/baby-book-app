@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the UI as expected 1`] = `
+Array [
+  <nav
+    className="navbar"
+    role="navigation"
+  >
+    <ul
+      className="navbar-list"
+    >
+      <li>
+        <a
+          href="/"
+          onClick={[Function]}
+        >
+          Home
+        </a>
+      </li>
+      <li>
+        <a
+          href="/register"
+          onClick={[Function]}
+        >
+          Register
+        </a>
+      </li>
+      <li>
+        <a
+          href="/login"
+          onClick={[Function]}
+        >
+          Log in
+        </a>
+      </li>
+    </ul>
+  </nav>,
+  <form
+    className="RegistrationForm"
+    onSubmit={[Function]}
+  >
+    <fieldset
+      className="Registration-input"
+    >
+      <h3>
+        Register
+      </h3>
+      <label
+        htmlFor="RegistrationForm__first_name"
+      />
+      <input
+        id="RegistrationForm__first_name"
+        name="first_name"
+        placeholder="First Name"
+        required={true}
+        type="text"
+      />
+      <label
+        htmlFor="RegistrationForm__last_name"
+      />
+      <input
+        id="RegistrationForm__last_name"
+        name="last_name"
+        placeholder="Last Name"
+        required={true}
+        type="text"
+      />
+      <label
+        htmlFor="RegistrationForm__username"
+      />
+      <input
+        id="RegistrationForm__username"
+        name="username"
+        placeholder="Username"
+        required={true}
+        type="text"
+      />
+      <label
+        htmlFor="password"
+      />
+      <input
+        id="RegistrationForm__password"
+        name="password"
+        placeholder="Password"
+        required={true}
+        type="password"
+      />
+    </fieldset>
+    <button
+      className="registration-button"
+      type="submit"
+    >
+      Register
+    </button>
+  </form>,
+]
+`;

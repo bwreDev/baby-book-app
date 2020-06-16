@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import './EventItem.css';
 
 export default function EventItem(props) {
   const cleanDate = moment(props.event.date_added).format(
@@ -8,8 +9,12 @@ export default function EventItem(props) {
 
   return (
     <>
-      <h3>{props.event.content}</h3>
-      <span>Posted: {cleanDate}</span>
+      <h3 className='event-item'>{props.event.content}</h3>
+      <span>Posted: {props.event.date_added ? cleanDate : ''}</span>
     </>
   );
 }
+
+EventItem.defaultProps = {
+  event: {},
+};

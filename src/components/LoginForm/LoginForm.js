@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AuthApiService from '../../services/auth-api-service';
 import Navbar from '../../components/Navbar/Navbar';
+import './LoginForm.css';
 
 export default class LoginForm extends Component {
   static defaultProps = {
@@ -42,21 +43,26 @@ export default class LoginForm extends Component {
             {error && <p className='red'>{error}</p>}
           </div>
           <fieldset>
-            <label htmlFor='LoginForm__username'>username:</label>
+            <h3>Login</h3>
+            <label htmlFor='LoginForm__username'></label>
             <input
               name='username'
               type='text'
+              placeholder='Username'
               id='LoginForm__username'
               required
             />
-            <label htmlFor='LoginForm__password'>Password:</label>
+            <label htmlFor='LoginForm__password'></label>
             <input
               name='password'
               type='password'
+              placeholder='Password'
               id='LoginForm__password'
             />
           </fieldset>
-          <button type='submit'>Login</button>
+          <button className='login-button' type='submit'>
+            Login
+          </button>
         </form>
       </>
     );

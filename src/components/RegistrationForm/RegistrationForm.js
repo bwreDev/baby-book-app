@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AuthApiService from '../../services/auth-api-service';
 import Navbar from '../../components/Navbar/Navbar';
+import './RegistrationForm.css';
 
 export default class RegistrationForm extends Component {
   static defaultProps = {
@@ -48,43 +49,44 @@ export default class RegistrationForm extends Component {
           className='RegistrationForm'
           onSubmit={this.handleSubmit}
         >
-          <fieldset className='first_name'>
-            <label htmlFor='RegistrationForm__first_name'>
-              First name
-            </label>
+          <fieldset className='Registration-input'>
+            <h3>Register</h3>
+            <label htmlFor='RegistrationForm__first_name'></label>
             <input
               name='first_name'
               type='text'
+              placeholder='First Name'
               required
               id='RegistrationForm__first_name'
             ></input>
-            <label htmlFor='RegistrationForm__last_name'>
-              Last name
-            </label>
+            <label htmlFor='RegistrationForm__last_name'></label>
             <input
               name='last_name'
               type='text'
+              placeholder='Last Name'
               required
               id='RegistrationForm__last_name'
             ></input>
-            <label htmlFor='RegistrationForm__username'>
-              username
-            </label>
+            <label htmlFor='RegistrationForm__username'></label>
             <input
               name='username'
               type='text'
+              placeholder='Username'
               required
               id='RegistrationForm__username'
             ></input>
-            <label htmlFor='password'>Password</label>
+            <label htmlFor='password'></label>
             <input
-              type='text'
+              type='password'
               name='password'
+              placeholder='Password'
               required
               id='RegistrationForm__password'
             ></input>
           </fieldset>
-          <button type='submit'>Register</button>
+          <button className='registration-button' type='submit'>
+            Register
+          </button>
         </form>
       </>
     );

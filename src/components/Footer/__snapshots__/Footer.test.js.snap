@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the UI as expected 1`] = `
+<footer
+  role="content-info"
+>
+  <a
+    href="/"
+    onClick={[Function]}
+  >
+    Home
+  </a>
+</footer>
+`;

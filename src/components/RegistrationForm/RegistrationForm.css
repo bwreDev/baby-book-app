@@ -1,0 +1,30 @@
+.registration-button {
+  background-color: #9e9c67;
+  border-radius: 15px;
+  padding: 20px;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px;
+  width: 250px;
+  opacity: 70%;
+}
+
+.registration-button:hover {
+  background-color: #c7dfeb;
+  cursor: pointer;
+}
+
+.RegistrationForm fieldset {
+  border-style: none;
+}
+
+.RegistrationForm input {
+  height: 40px;
+  border-radius: 15px;
+  border-style: none;
+  opacity: 75%;
+  margin: 5px;
+}

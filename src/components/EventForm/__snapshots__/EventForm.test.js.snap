@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the UI as expected 1`] = `
+Array [
+  <nav
+    className="navbar"
+    role="navigation"
+  >
+    <ul
+      className="navbar-list"
+    >
+      <li>
+        <a
+          href="/"
+          onClick={[Function]}
+        >
+          Home
+        </a>
+      </li>
+      <li>
+        <a
+          href="/register"
+          onClick={[Function]}
+        >
+          Register
+        </a>
+      </li>
+      <li>
+        <a
+          href="/login"
+          onClick={[Function]}
+        >
+          Log in
+        </a>
+      </li>
+    </ul>
+  </nav>,
+  <form
+    className="event-form"
+    onSubmit={[Function]}
+  >
+    <select
+      name="event_type"
+      onChange={[Function]}
+    >
+      <option
+        value=""
+      />
+      <option
+        value="diaper_changes"
+      >
+        Diaper Changes
+      </option>
+      <option
+        value="feedings"
+      >
+        Feedings
+      </option>
+      <option
+        value="appointments"
+      >
+        Appointments
+      </option>
+      <option
+        value="stretches"
+      >
+        Stretches
+      </option>
+    </select>
+    <button
+      type="submit"
+    >
+      Save
+    </button>
+  </form>,
+]
+`;

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import TokenService from '../../services/token-services';
 import IdleService from '../../services/idle-service';
+import './Navbar.css';
 
 export default class Navbar extends Component {
   state = {
@@ -16,7 +17,7 @@ export default class Navbar extends Component {
 
   renderLogoutLink() {
     return (
-      <div className='Navbar__logged-in'>
+      <>
         <li>
           <Link to='/user'>Profile</Link>
         </li>
@@ -28,27 +29,27 @@ export default class Navbar extends Component {
             Logout
           </Link>
         </li>
-      </div>
+      </>
     );
   }
 
   renderLoginLink() {
     return (
-      <div className='Navbar__not-logged-in'>
+      <>
         <li>
           <Link to='/register'>Register</Link>
         </li>
         <li>
           <Link to='/login'>Log in</Link>
         </li>
-      </div>
+      </>
     );
   }
 
   render() {
     return (
       <nav role='navigation' className='navbar'>
-        <ul>
+        <ul className='navbar-list'>
           <li>
             <Link to='/'>Home</Link>
           </li>

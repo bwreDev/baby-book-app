@@ -3,6 +3,7 @@ import EventItem from '../EventItem/EventItem';
 import EventsContext from '../../contexts/EventsContext';
 import BabyBookApiService from '../../services/baby-book-api-service';
 import Navbar from '../../components/Navbar/Navbar';
+import './UserPage.css';
 
 export default class UserPage extends Component {
   state = {
@@ -43,7 +44,7 @@ export default class UserPage extends Component {
                     className='delete_feedings'
                     onClick={() => this.handleDelete(e.id)}
                   >
-                    Delete
+                    X
                   </button>
                 </li>
               ))}
@@ -61,7 +62,7 @@ export default class UserPage extends Component {
                     className='delete_diaper_changes'
                     onClick={() => this.handleDelete(e.id)}
                   >
-                    Delete
+                    X
                   </button>
                 </li>
               ))}
@@ -79,7 +80,7 @@ export default class UserPage extends Component {
                     className='delete_stretches'
                     onClick={() => this.handleDelete(e.id)}
                   >
-                    Delete
+                    X
                   </button>
                 </li>
               ))}
@@ -97,7 +98,7 @@ export default class UserPage extends Component {
                     className='delete_appointment'
                     onClick={() => this.handleDelete(e.id)}
                   >
-                    Delete
+                    X
                   </button>
                 </li>
               ))}
