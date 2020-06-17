@@ -10,7 +10,7 @@ export default class LandingPage extends Component {
         <header role='banner'>
           <h1>Baby Book!</h1>
           <h2>Organize your newborns life!</h2>
-          <h3>Record important events in your newborns life!</h3>
+          <h3>Track important events in your newborns life!</h3>
         </header>
       </>
     );
