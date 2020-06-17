@@ -9,7 +9,7 @@ export default function EventItem(props) {
 
   return (
     <>
-      <h3 className='event-item'>{props.event.content}</h3>
+      <h4 className='event-item'>{props.event.content}</h4>
       <span>Posted: {props.event.date_added ? cleanDate : ''}</span>
     </>
   );

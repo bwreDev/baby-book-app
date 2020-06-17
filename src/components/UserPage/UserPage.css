@@ -22,3 +22,7 @@
   color: red;
   cursor: pointer;
 }
+
+h3 {
+  text-decoration: underline;
+}
