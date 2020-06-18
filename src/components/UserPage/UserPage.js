@@ -32,7 +32,7 @@ export default class UserPage extends Component {
           <h1>Baby Book!</h1>
           <h2>Welcome Back!</h2>
         </header>
-        <section>
+        <section className='event-section'>
           <h3>Recent Feedings</h3>
           <ul>
             {this.context.events
@@ -50,7 +50,7 @@ export default class UserPage extends Component {
               ))}
           </ul>
         </section>
-        <section>
+        <section className='event-section'>
           <h3>Recent Diaper Changes</h3>
           <ul>
             {this.context.events
@@ -68,7 +68,7 @@ export default class UserPage extends Component {
               ))}
           </ul>
         </section>
-        <section>
+        <section className='event-section'>
           <h3>Recent Stretches</h3>
           <ul>
             {this.context.events
@@ -86,7 +86,7 @@ export default class UserPage extends Component {
               ))}
           </ul>
         </section>
-        <section>
+        <section className='event-section'>
           <h3>Upcoming Appointments</h3>
           <ul>
             {this.context.events

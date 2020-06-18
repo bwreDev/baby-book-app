@@ -68,6 +68,7 @@ Array [
       </option>
     </select>
     <button
+      className="event-button"
       type="submit"
     >
       Save

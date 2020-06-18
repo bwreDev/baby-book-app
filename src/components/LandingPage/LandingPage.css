@@ -1,0 +1,19 @@
+@media only screen and (min-width: 600px) {
+  header {
+    font-size: 26px;
+  }
+
+  .demo-login {
+    font-size: 26px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  header {
+    font-size: 32px;
+  }
+
+  .demo-login {
+    font-size: 32px;
+  }
+}

@@ -48,5 +48,14 @@ Array [
       Track important events in your newborns life!
     </h3>
   </header>,
+  <p>
+    Test out the site with our demo account!
+  </p>,
+  <p>
+    Username: demo
+  </p>,
+  <p>
+    Password: Demo123!
+  </p>,
 ]
 `;

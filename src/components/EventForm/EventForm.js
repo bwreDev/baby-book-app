@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import EventsContext from '../../contexts/EventsContext';
 import BabyBookApiService from '../../services/baby-book-api-service';
 import Navbar from '../../components/Navbar/Navbar';
+import moment from 'moment';
+import './EventForm.css';
 
 export default class EventForm extends Component {
   static contextType = EventsContext;
@@ -37,8 +39,10 @@ export default class EventForm extends Component {
     if (eventObject.title === 'appointments') {
       eventObject.content =
         event.target.appointments.value +
-        ' ' +
-        event.target.appointments_date.value;
+        ' on - ' +
+        moment(event.target.appointments_date.value).format(
+          'MMM Do YY'
+        );
     }
     if (eventObject.title === 'stretches') {
       eventObject.content = event.target.stretches.value;
@@ -54,7 +58,9 @@ export default class EventForm extends Component {
     return (
       <>
         <Navbar />
+        <h2>Please select an event to create!</h2>
         <form className='event-form' onSubmit={this.handleSubmit}>
+          <h3>Event type</h3>
           <select onChange={this.onChange} name='event_type'>
             <option value=''></option>
             <option value='diaper_changes'>Diaper Changes</option>
@@ -64,7 +70,10 @@ export default class EventForm extends Component {
           </select>
           {this.state.event_type === 'diaper_changes' ? (
             <fieldset className='diaper_changes'>
-              <label htmlFor='diaper_changes'>Diaper Changes</label>
+              <label htmlFor='diaper_changes'>
+                <h3>Diaper changes</h3>
+              </label>
+              <h4>Option</h4>
               <select name='diaper_changes'>
                 <option value=''></option>
                 <option value='wet'>Wet</option>
@@ -75,18 +84,23 @@ export default class EventForm extends Component {
           ) : null}
           {this.state.event_type === 'feedings' ? (
             <fieldset className='feedings'>
-              <label htmlFor='feedings'>Feedings</label>
+              <label htmlFor='feedings'>
+                <h3>Feedings</h3>
+              </label>
+              <h4>Type</h4>
               <select name='feedings'>
                 <option value=''></option>
                 <option value='nursing'>Nursing</option>
                 <option value='pumped'>Pumped</option>
                 <option value='formula'>Formula</option>
               </select>
+              <h4>Amount</h4>
               <input
                 placeholder='0'
                 type='number'
                 name='feeding_amount'
               />
+              <h4>Unit</h4>
               <select name='measurement'>
                 <option value=''></option>
                 <option value='ml'>milliliters</option>
@@ -96,7 +110,9 @@ export default class EventForm extends Component {
           ) : null}
           {this.state.event_type === 'appointments' ? (
             <fieldset className='appointments'>
-              <label htmlFor='appointments'>Appointment</label>
+              <label htmlFor='appointments'>
+                <h3>Appointment</h3>
+              </label>
               <textarea
                 placeholder='Type of appointment'
                 name='appointments'
@@ -106,14 +122,18 @@ export default class EventForm extends Component {
           ) : null}
           {this.state.event_type === 'stretches' ? (
             <fieldset className='stretches'>
-              <label htmlFor='stretches'>Stretches</label>
+              <label htmlFor='stretches'>
+                <h3>Stretches</h3>
+              </label>
               <textarea
                 placeholder='Type of stretch'
                 name='stretches'
               ></textarea>
             </fieldset>
           ) : null}
-          <button type='submit'>Save</button>
+          <button className='event-button' type='submit'>
+            Save
+          </button>
         </form>
       </>
     );
