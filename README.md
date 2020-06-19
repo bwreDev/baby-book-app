@@ -6,8 +6,14 @@ This is for new parents to be able to keep track of their newborns various
 important events, such as feedings, diaper changes, etc.
 
 Please see the live production at [https://baby-book-app.now.sh/](https://baby-book-app.now.sh/).
+![splash-page](SplashPage.PNG)
+![profile-page](ProfilePage.PNG)
 
 This client utilizes the [Baby-Book-API](https://github.com/cbonner26118/baby-book-api).
+
+### Tech
+
+This client is built using React.js, CSS3, and JavaScript.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
